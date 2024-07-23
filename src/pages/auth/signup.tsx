@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import { useState } from 'react'
 import { useRouter } from 'next/router'
@@ -44,7 +44,9 @@ const Signup = () => {
           className="border p-2 mb-4 w-full"
         />
         {error && <p className="text-red-500 mb-4">{error}</p>}
-        <button type="submit" className="bg-blue-500 text-white p-2 w-full">Sign Up</button>
+        <button type="submit" className="bg-blue-500 text-white p-2 w-full">
+          Sign Up
+        </button>
       </form>
     </div>
   )

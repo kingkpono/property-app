@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios from 'axios'
 
-const apiKey = process.env.NEXT_PUBLIC_RAPIDAPI_KEY;
+const apiKey = process.env.NEXT_PUBLIC_RAPIDAPI_KEY
 
 const realtyApi = axios.create({
   baseURL: 'https://realty-in-us.p.rapidapi.com/properties/v3',
@@ -9,7 +9,7 @@ const realtyApi = axios.create({
     'X-RapidAPI-Host': 'realty-in-us.p.rapidapi.com',
     'X-RapidAPI-Key': apiKey,
   },
-});
+})
 
 export const getProperties = async () => {
   try {
@@ -22,25 +22,24 @@ export const getProperties = async () => {
         direction: 'desc',
         field: 'list_date',
       },
-    });
+    })
     console.log(response.data.data.home_search.results)
-    return response.data.data.home_search.results;
+    return response.data.data.home_search.results
   } catch (error) {
-    console.error('Error fetching properties:', error);
-    throw error;
+    console.error('Error fetching properties:', error)
+    throw error
   }
-};
+}
 
 // Existing code...
 
 export const getPropertyDetails = async (id: string) => {
   try {
-    const response = await realtyApi.get('/detail?property_id='+id);
+    const response = await realtyApi.get('/detail?property_id=' + id)
     console.log(response.data.data.home)
-    return response.data.data.home;
+    return response.data.data.home
   } catch (error) {
-    console.error('Error fetching property:', error);
-    throw error;
+    console.error('Error fetching property:', error)
+    throw error
   }
-};
-
+}
